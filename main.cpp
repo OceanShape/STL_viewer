@@ -17,7 +17,8 @@ static float rotate_x = 0.0f, drot_x = 0.0f;
 static float rotate_y = 0.0f, drot_y = 0.0f;
 static float rotate_z = 0.0f, drot_z = 0.0f;
 
-static void key_callback(GLFWwindow* window, int key, int scancode,
+
+static void keyInputCallback(GLFWwindow* window, int key, int scancode,
 	int action, int mods)
 {
 	// quit application when the user presses ESC
@@ -57,8 +58,6 @@ static void key_callback(GLFWwindow* window, int key, int scancode,
 	if (key == GLFW_KEY_E && action == GLFW_RELEASE) dmov_z = 0.0f;
 	if (key == GLFW_KEY_D && action == GLFW_PRESS) dmov_z = -MOVE_DELTA;
 	if (key == GLFW_KEY_D && action == GLFW_RELEASE) dmov_z = 0.0f;
-
-
 }
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -152,7 +151,7 @@ int main(int argc, char* argv[])
 		std::cout << std::endl;
 
 
-		double offset = 40.0f;
+		double offset = 15.0f;
 		//double offset = 0.0f;
 		std::cout << "offset : " << offset << std::endl;
 
@@ -187,16 +186,16 @@ int main(int argc, char* argv[])
 	std::cout << "Need to translate the geometry by: " << move_x << " " << move_y << " " << move_z << std::endl;
 
 	// calculate scaling factors along X, Y and Z
-	float scale_x = (float)(x_max - x_min) / 1.0f;
-	float scale_y = (float)(y_max - y_min) / 1.0f;
-	float scale_z = (float)(z_max - z_min) / 1.0f;
+	float scale_x = (float)(x_max - x_min);
+	float scale_y = (float)(y_max - y_min);
+	float scale_z = (float)(z_max - z_min);
 
 	float scale_0 = scale_x;
 	if (scale_y > scale_0) scale_0 = scale_y;
 	if (scale_z > scale_0) scale_0 = scale_z;
 
 	std::cout << "Need to scale the geometry by: " << 1.0f / scale_0 << std::endl;
-	float scale = 3.2f * scale_0;
+	float scale = 2.8f * scale_0;
 
 	//--------------------------------
 	//   Create a WINDOW using GLFW
@@ -207,7 +206,14 @@ int main(int argc, char* argv[])
 
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 
-	window = glfwCreateWindow(mode->width, mode->height, "STL viewer", NULL, NULL);
+	int width = mode->width;
+	int height = mode->height;
+
+	float screenRatio = (float)width / (float)height;
+
+	window = glfwCreateWindow(width, height, "STL viewer", NULL, NULL);
+
+
 	if (!window)
 	{
 		glfwTerminate();
@@ -216,7 +222,7 @@ int main(int argc, char* argv[])
 
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-	glfwSetKeyCallback(window, key_callback);
+	glfwSetKeyCallback(window, keyInputCallback);
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -228,7 +234,7 @@ int main(int argc, char* argv[])
 	//------------------------------------------
 	// create a vertex array based on facet data
 	//------------------------------------------
-	float* vertices = new float[facet.size() * 30]; // 30 * 8
+	float* vertices = new float[facet.size() * 30];
 	createVertexArray(facet, vertices); // custom function for VAO
 
 	GLuint VBO;
@@ -261,7 +267,7 @@ int main(int argc, char* argv[])
 		{
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			gluPerspective(50.0f, 1.0f, 0.1f, 10.0f);
+			gluPerspective(50.0f, screenRatio, 0.1f, 10.0f);
 		}
 
 
