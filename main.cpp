@@ -58,6 +58,17 @@ static void keyInputCallback(GLFWwindow* window, int key, int scancode,
 	if (key == GLFW_KEY_E && action == GLFW_RELEASE) dmov_z = 0.0f;
 	if (key == GLFW_KEY_D && action == GLFW_PRESS) dmov_z = -MOVE_DELTA;
 	if (key == GLFW_KEY_D && action == GLFW_RELEASE) dmov_z = 0.0f;
+
+	if (key == GLFW_KEY_R && action == GLFW_PRESS)
+	{
+		move_x = 0.0f;
+		move_y = 0.0f;
+		move_z = 0.0f;
+
+		rotate_x = 0.0f;
+		rotate_y = 0.0f;
+		rotate_z = 0.0f;
+	}
 }
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
