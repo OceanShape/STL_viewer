@@ -157,14 +157,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="bone.h" />
     <ClInclude Include="createVertexArray.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="readBINARY.h" />
     <ClInclude Include="structs_and_classes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bone.cpp" />
     <ClCompile Include="createVertexArray.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="readBINARY.cpp" />

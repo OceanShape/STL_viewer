@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
 
 		inputListFile.open((listFileName).c_str(), std::ifstream::in);
 
-		if (inputListFile.fail())
+		if (inputListFile.fail() == true)
 		{
 			std::cout << "ERROR: STL list load failed" << std::endl;
 			exit(1);
@@ -150,7 +150,8 @@ int main(int argc, char* argv[])
 
 
 		std::cout << "STL list : ";
-		while (!inputListFile.eof())
+
+		while (inputListFile.eof() == false)
 		{
 			std::string str;
 			std::getline(inputListFile, str);
@@ -163,10 +164,10 @@ int main(int argc, char* argv[])
 
 
 		double offset = 15.0f;
-		//double offset = 0.0f;
 		std::cout << "offset : " << offset << std::endl;
 
-		for (int i = 0; i < 10; ++i) {
+		for (int i = 0; i < 10; ++i)
+		{
 			std::cout << "Read " << fileName[i] << std::endl;
 			readBinarySTL(fileName[i], facet, x_min, x_max, y_min, y_max, z_min, z_max, offset);
 		}
@@ -182,9 +183,9 @@ int main(int argc, char* argv[])
 	float z_center = (float)(z_min + z_max) / 3.0f;
 
 	// translation along X,Y,Z
-	move_x = 0.0f;// - x_center;
-	move_y = 0.0f;// - y_center;
-	move_z = 0.0f;// - z_center;
+	move_x = 0.0f;
+	move_y = 0.0f;
+	move_z = 0.0f;
 
 	std::cout << "x,y,z center : " << x_center << y_center << z_center << std::endl;
 
@@ -213,7 +214,10 @@ int main(int argc, char* argv[])
 	//--------------------------------
 	GLFWwindow* window;
 
-	if (!glfwInit()) return -1;
+	if (glfwInit() == false)
+	{
+		return -1;
+	}
 
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 
@@ -225,7 +229,7 @@ int main(int argc, char* argv[])
 	window = glfwCreateWindow(width, height, "STL viewer", NULL, NULL);
 
 
-	if (!window)
+	if (window == nullptr)
 	{
 		glfwTerminate();
 		exit(1);
@@ -235,7 +239,7 @@ int main(int argc, char* argv[])
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetKeyCallback(window, keyInputCallback);
 
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	if (gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) == false)
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		exit(1);
@@ -269,7 +273,7 @@ int main(int argc, char* argv[])
 	glm::vec4 lightPos(light_x, light_y, light_z, 0.0f); // direction light
 
 
-	while (!glfwWindowShouldClose(window))
+	while (glfwWindowShouldClose(window) == false)
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
