@@ -166,7 +166,7 @@ int main(int argc, char* argv[])
 		double offset = 15.0f;
 		std::cout << "offset : " << offset << std::endl;
 
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < 8; ++i)
 		{
 			std::cout << "Read " << fileName[i] << std::endl;
 			readBinarySTL(fileName[i], facet, x_min, x_max, y_min, y_max, z_min, z_max, offset);
