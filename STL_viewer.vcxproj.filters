@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="createVertexArray.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="readBINARY.h">
+    <ClInclude Include="core\createVertexArray.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="structs_and_classes.h">
+    <ClInclude Include="core\readBINARY.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="core\structs_and_classes.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="createVertexArray.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="readBINARY.cpp">
+    <ClCompile Include="core\createVertexArray.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="core\readBINARY.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

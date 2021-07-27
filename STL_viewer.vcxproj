@@ -157,15 +157,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="createVertexArray.h" />
+    <ClInclude Include="core\createVertexArray.h" />
+    <ClInclude Include="core\readBINARY.h" />
+    <ClInclude Include="core\structs_and_classes.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="readBINARY.h" />
-    <ClInclude Include="structs_and_classes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="createVertexArray.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="readBINARY.cpp" />
+    <ClCompile Include="core\createVertexArray.cpp" />
+    <ClCompile Include="core\readBINARY.cpp" />
+    <ClCompile Include="main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Mr.pong\Desktop\Research\STL_viewer\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Mr.pong\Desktop\Research\STL_viewer\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
