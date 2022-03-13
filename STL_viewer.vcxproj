@@ -123,7 +123,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;.\core</AdditionalIncludeDirectories>
       <OmitFramePointers>false</OmitFramePointers>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -142,7 +142,7 @@
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;.\core</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <Optimization>Disabled</Optimization>
