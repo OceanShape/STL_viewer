@@ -9,6 +9,10 @@
 ## 환경 구성
 1. 아래의 링크를 참고하여, vcpkg opengl 환경 구축
     - [https://musket-ade.tistory.com/51](https://musket-ade.tistory.com/51)
+    - vcpkg로 설치하는 모든 라이브러리는 64bit 버전 설치를 위해, 뒤에 `:x64-windows`를 추가한다
+      - vcpkg install opengl:x64-windows
+      - vcpkg install glew:x64-windows
+      - vcpkg install glfw3:x64-windows
 2. opengl/glew/glfw3 설치 이후, 아래의 커맨드를 입력하여 glm/glad 라이브러리를 추가한다
     - vcpkg install glm:x64-windows
     - vcpkg install glad:x64-windows
